@@ -13,7 +13,7 @@ const state = {
 async function getPups() {
     const response = await fetch(API_URL);
     const json = await response.json();
-    state.pups = json.data;
+    state.pups.players = json.data;
 }
 
 
