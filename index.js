@@ -10,13 +10,20 @@ const state = {
 // }
 // render();
 
-getPups = async()=> {
+async function getPups() {
     const response = await fetch(API_URL);
     const json = await response.json();
     state.pups = json.data;
+}
 
+
+console.log(getPups());
+
+
+function renderPups() {
     console.log(state.pups)
-    const pupCards = state.pups.map(pup => {
+    console.log(typeof state.pups.players);
+    const pupCards = state.pups.players.map((pup) => {
         const pupLink = document.createElement("link");
         pupLink.innerHTML = `
             <h2>
@@ -28,11 +35,9 @@ getPups = async()=> {
     }).join('');
     return pupCards;
 
+    
+
 }
 
-getPups();
 
-// function renderPups() {
-    
-// }
-//     renderPups();
+renderPups();
